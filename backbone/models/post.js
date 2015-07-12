@@ -1,0 +1,1 @@
+SimplySocial.Models.PostModel = Backbone.Model.extend({});

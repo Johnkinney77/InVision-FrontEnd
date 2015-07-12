@@ -34,6 +34,10 @@ body {
   margin: 0 auto;
 }
 
+a {
+  text-decoration: none;
+}
+
 #hero-image-container {
   background: url('../imgs/header-image.jpg');
   background-position: middle;
@@ -102,6 +106,7 @@ body {
 }
 
 #nav {
+  z-index: 1;
   background-color: $main-black;
   height: 60px;
   position: fixed;
@@ -238,6 +243,10 @@ body {
     opacity: 0.5;
   }
 
+  a:hover {
+    opacity: 1; 
+  }
+
   #filters {
     display: inline-block;
 
@@ -252,8 +261,7 @@ body {
     }
 
     a:hover {
-      border-bottom: 4px solid $main-green;  
-      opacity: 1;  
+      border-bottom: 4px solid $main-green;   
     }
   }
 

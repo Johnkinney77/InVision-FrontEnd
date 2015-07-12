@@ -5,35 +5,38 @@
   <script src="./bower_components/jquery/dist/jquery.min.js"></script>
   <script src="./bower_components/underscore/underscore-min.js"></script>
   <script src="./bower_components/backbone/backbone-min.js"></script>
+  <script src="./bower_components/mustache/mustache.min.js"></script>
   <script src="./public/js/main.js"></script>
   <link rel="stylesheet" type="text/css" href="./public/css/sassfile.css">
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:600,400' rel='stylesheet' type='text/css'>
+  <script type="text/template" id="post-template">
+    <img src="{{img_url}}"><h4>{{name}}</h4><p>{{comment}}</p>
+  </script>
 </head>
 <body>
   <div id="nav">
     <nav class="container">
-      <a href="">
+      <a href="#">
         <img id="logo" src="./public/imgs/simply-social-logo.svg"> <span id="simply-logo">simply</span><span id="social-logo">social</span>
       </a>
       <div class="right">
-        <a href=""><img src="./public/imgs/new-comment.svg"></a>
+        <a href="#"><img src="./public/imgs/new-comment.svg"></a>
         <input type="text"/>
         <a id="mobile-search" href="#"><img src="./public/imgs/search-icon-green.svg"></a>
         <div id="avatar">
-          <a href=""><img id="profile-picture" src="./public/imgs/profile_pictures/jessica-tuan-profile-pic.jpg">
+          <a href="#"><img id="profile-picture" src="./public/imgs/profile_pictures/jessica-tuan-profile-pic.jpg">
           <img id="arrow" src="./public/imgs/profile-arrow.png"></a>
           <div id="avatar-drop-down">
-            <a href="">Profile</a>
-            <a href="">Followers</a>
-            <a href="">Following</a>
-            <a href="">Settings</a>
+            <a href="#">Profile</a>
+            <a href="#">Followers</a>
+            <a href="#">Following</a>
+            <a href="#/user/settings">Settings</a>
           </div>
         </div>
       </div>
     </nav>
   </div>
   <div id="hero-image-container">
-<!--     <img id="header-img" src="./public/imgs/header-image.jpg"/>  --> 
     <div class="inner-container">
       <div id="create-message">
         <input type="text" placeholder="What's on your mind?">
@@ -61,6 +64,8 @@
         </div>
       </div>
     </div>
+  </div>
+  <div id="posts">
   </div>
 </body>
 </html>

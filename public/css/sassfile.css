@@ -24,6 +24,9 @@ body {
   margin: 0 2%;
   margin: 0 auto; }
 
+a {
+  text-decoration: none; }
+
 #hero-image-container {
   background: url("../imgs/header-image.jpg");
   background-position: middle;
@@ -68,6 +71,7 @@ body {
       opacity: 1; }
 
 #nav {
+  z-index: 1;
   background-color: #262728;
   height: 60px;
   position: fixed;
@@ -164,6 +168,8 @@ body {
     padding: 5px;
     padding-bottom: 16px;
     opacity: 0.5; }
+  #subnav a:hover {
+    opacity: 1; }
   #subnav #filters {
     display: inline-block; }
     #subnav #filters a {
@@ -175,8 +181,7 @@ body {
       text-decoration: none;
       border-bottom: 4px solid transparent; }
     #subnav #filters a:hover {
-      border-bottom: 4px solid #00cc99;
-      opacity: 1; }
+      border-bottom: 4px solid #00cc99; }
   #subnav .right {
     float: right;
     display: inline-block; }
