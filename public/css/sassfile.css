@@ -19,44 +19,53 @@ body {
   margin: 0 auto; }
 
 .inner-container {
-  width: 575px;
+  max-width: 600px;
+  width: 96%;
+  margin: 0 2%;
   margin: 0 auto; }
 
 #hero-image-container {
+  background: url("../imgs/header-image.jpg");
+  background-position: middle;
+  background-repeat: none;
   width: 100%;
-  overflow: hidden;
-  text-align: center; }
-  #hero-image-container #header-img {
-    height: 485px;
-    margin-left: auto;
-    margin-right: auto; }
+  height: 485px;
+  overflow: hidden; }
   #hero-image-container #create-message {
     background-color: rgba(0, 204, 153, 0.7);
-    padding: 8%;
+    padding: 8% 8% 0 8%;
+    width: 84%;
+    top: 200px;
     position: relative;
-    width: 84%; }
+    border-radius: 3px; }
     #hero-image-container #create-message input {
       background-color: transparent;
       border: none;
       display: block;
-      width: 80%;
-      padding: 2%;
+      margin-bottom: 40px;
       font-size: 30px;
-      font-family: "Open Sans", sans-serif; }
-      #hero-image-container #create-message input ::-webkit-input-placeholder {
-        color: white; }
-      #hero-image-container #create-message input :-moz-placeholder {
-        color: white; }
-      #hero-image-container #create-message input ::-moz-placeholder {
-        color: white; }
-      #hero-image-container #create-message input :-ms-input-placeholder {
-        color: white; }
+      font-family: "Open Sans", sans-serif;
+      width: 100%; }
+    #hero-image-container #create-message input:focus {
+      outline: none; }
     #hero-image-container #create-message a {
       color: white;
       font-family: "Open Sans", sans-serif;
-      text-decoration: none; }
+      text-decoration: none;
+      opacity: 0.5;
+      margin-bottom: 10px;
+      display: inline-block; }
       #hero-image-container #create-message a img {
-        padding: 10px; }
+        padding: 10px 10px 10px 0; }
+      #hero-image-container #create-message a span {
+        padding: 10px 10px 10px 0;
+        top: -10px;
+        position: relative;
+        display: inline-block;
+        color: white;
+        margin-right: 20px; }
+    #hero-image-container #create-message a:hover {
+      opacity: 1; }
 
 #nav {
   background-color: #262728;
@@ -78,20 +87,20 @@ body {
   #nav #social-logo {
     color: #bec3cc;
     padding: 10px 10px 10px 0; }
-  #nav #right {
+  #nav .right {
     float: right;
     display: inline-block; }
-    #nav #right img {
+    #nav .right img {
       height: 30px;
       margin: 15px 15px 0 15px; }
-    #nav #right #profile-picture {
+    #nav .right #profile-picture {
       margin-right: 0; }
-    #nav #right #arrow {
+    #nav .right #arrow {
       height: 4px;
       margin-left: 10px;
       position: relative;
       top: -12px; }
-    #nav #right input {
+    #nav .right input {
       background-color: #262728;
       border-radius: 3px;
       border: solid 1px #44474b;
@@ -105,22 +114,22 @@ body {
       color: white;
       font-family: "Open Sans", sans-serif;
       display: inline-block; }
-    #nav #right #mobile-search {
+    #nav .right #mobile-search {
       display: none; }
-    #nav #right input:focus {
+    #nav .right input:focus {
       outline: auto 5px #00cc99; }
-    #nav #right #avatar {
+    #nav .right #avatar {
       display: inline-block;
       position: relative;
       padding-bottom: 15px; }
-      #nav #right #avatar #avatar-drop-down {
+      #nav .right #avatar #avatar-drop-down {
         width: 96px;
         background-color: white;
         border-radius: 3px;
         position: absolute;
         margin: 5px 0px 0 -15px;
         display: none; }
-        #nav #right #avatar #avatar-drop-down :after {
+        #nav .right #avatar #avatar-drop-down :after {
           bottom: 100%;
           left: 80%;
           border: solid transparent;
@@ -132,7 +141,7 @@ body {
           border-bottom-color: white;
           border-width: 5px;
           margin-left: -5px; }
-        #nav #right #avatar #avatar-drop-down a {
+        #nav .right #avatar #avatar-drop-down a {
           text-decoration: none;
           font-family: "Open Sans", sans-serif;
           display: block;
@@ -141,16 +150,58 @@ body {
           font-size: 12px;
           padding: 10%;
           border-bottom: 1px solid #dee1e5; }
-        #nav #right #avatar #avatar-drop-down a:last-child {
+        #nav .right #avatar #avatar-drop-down a:last-child {
           border-bottom: none; }
-        #nav #right #avatar #avatar-drop-down a:hover {
+        #nav .right #avatar #avatar-drop-down a:hover {
           background-color: #00cc99;
           color: white; }
 
-@media screen and (max-width: 550px) {
-  #nav #right #mobile-search {
+#subnav {
+  width: 100%;
+  position: relative;
+  top: 260px; }
+  #subnav a {
+    padding: 5px;
+    padding-bottom: 16px;
+    opacity: 0.5; }
+  #subnav #filters {
     display: inline-block; }
-  #nav #right input {
+    #subnav #filters a {
+      font-family: "Open Sans", sans-serif;
+      font-weight: 600;
+      color: white;
+      font-size: 12px;
+      margin-right: 25px;
+      text-decoration: none;
+      border-bottom: 4px solid transparent; }
+    #subnav #filters a:hover {
+      border-bottom: 4px solid #00cc99;
+      opacity: 1; }
+  #subnav .right {
+    float: right;
+    display: inline-block; }
+    #subnav .right #tiles, #subnav .right #list {
+      width: 12px;
+      display: block;
+      float: left;
+      margin-left: 10px; }
+      #subnav .right #tiles .list-bar, #subnav .right #list .list-bar {
+        width: 9px;
+        margin: 0 auto;
+        height: 1px;
+        margin: 1.5px 1.5px 3px 1.5px;
+        background-color: white; }
+      #subnav .right #tiles .tile-button, #subnav .right #list .tile-button {
+        width: 3px;
+        height: 3px;
+        margin: 1.5px;
+        float: left;
+        background-color: white; }
+
+@media screen and (max-width: 550px) {
+  #nav .right #mobile-search {
+    display: inline-block; }
+  #nav .right input {
     position: absolute;
     margin: 0 auto;
     left: 0;
