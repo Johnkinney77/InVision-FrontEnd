@@ -1,0 +1,8 @@
+{
+  "name": "simplysocial",
+  "version": "0.0.1",
+  "dependencies": {
+    "backbone": "~1.2.1",
+    "jquery": "~2.1.4"
+  }
+}

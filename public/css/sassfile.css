@@ -1,0 +1,162 @@
+@font-face {
+  font-family: 'ProximaNova';
+  src: url("file:../fonts/ProximaNova-Regular.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal; }
+
+* {
+  margin: 0;
+  padding: 0; }
+
+body {
+  max-width: 1500px;
+  width: 100%;
+  margin: 0 auto; }
+
+.container {
+  max-width: 1300px;
+  width: 100%;
+  margin: 0 auto; }
+
+.inner-container {
+  width: 575px;
+  margin: 0 auto; }
+
+#hero-image-container {
+  width: 100%;
+  overflow: hidden;
+  text-align: center; }
+  #hero-image-container #header-img {
+    height: 485px;
+    margin-left: auto;
+    margin-right: auto; }
+  #hero-image-container #create-message {
+    background-color: rgba(0, 204, 153, 0.7);
+    padding: 8%;
+    position: relative;
+    width: 84%; }
+    #hero-image-container #create-message input {
+      background-color: transparent;
+      border: none;
+      display: block;
+      width: 80%;
+      padding: 2%;
+      font-size: 30px;
+      font-family: "Open Sans", sans-serif; }
+      #hero-image-container #create-message input ::-webkit-input-placeholder {
+        color: white; }
+      #hero-image-container #create-message input :-moz-placeholder {
+        color: white; }
+      #hero-image-container #create-message input ::-moz-placeholder {
+        color: white; }
+      #hero-image-container #create-message input :-ms-input-placeholder {
+        color: white; }
+    #hero-image-container #create-message a {
+      color: white;
+      font-family: "Open Sans", sans-serif;
+      text-decoration: none; }
+      #hero-image-container #create-message a img {
+        padding: 10px; }
+
+#nav {
+  background-color: #262728;
+  height: 60px;
+  position: fixed;
+  width: 100%; }
+  #nav #logo {
+    padding-right: 10px; }
+  #nav img {
+    margin: 15px 0 0 15px; }
+  #nav span {
+    font-family: ProximaNova;
+    text-decoration: none;
+    top: -5px;
+    position: relative; }
+  #nav #simply-logo {
+    color: #686e76;
+    padding: 10px 0; }
+  #nav #social-logo {
+    color: #bec3cc;
+    padding: 10px 10px 10px 0; }
+  #nav #right {
+    float: right;
+    display: inline-block; }
+    #nav #right img {
+      height: 30px;
+      margin: 15px 15px 0 15px; }
+    #nav #right #profile-picture {
+      margin-right: 0; }
+    #nav #right #arrow {
+      height: 4px;
+      margin-left: 10px;
+      position: relative;
+      top: -12px; }
+    #nav #right input {
+      background-color: #262728;
+      border-radius: 3px;
+      border: solid 1px #44474b;
+      height: 28px;
+      width: 198px;
+      position: relative;
+      top: -10px;
+      background: url("../imgs/search.svg");
+      background-position: 95% 50%;
+      background-repeat: no-repeat;
+      color: white;
+      font-family: "Open Sans", sans-serif;
+      display: inline-block; }
+    #nav #right #mobile-search {
+      display: none; }
+    #nav #right input:focus {
+      outline: auto 5px #00cc99; }
+    #nav #right #avatar {
+      display: inline-block;
+      position: relative;
+      padding-bottom: 15px; }
+      #nav #right #avatar #avatar-drop-down {
+        width: 96px;
+        background-color: white;
+        border-radius: 3px;
+        position: absolute;
+        margin: 5px 0px 0 -15px;
+        display: none; }
+        #nav #right #avatar #avatar-drop-down :after {
+          bottom: 100%;
+          left: 80%;
+          border: solid transparent;
+          content: " ";
+          height: 0;
+          width: 0;
+          position: absolute;
+          pointer-events: none;
+          border-bottom-color: white;
+          border-width: 5px;
+          margin-left: -5px; }
+        #nav #right #avatar #avatar-drop-down a {
+          text-decoration: none;
+          font-family: "Open Sans", sans-serif;
+          display: block;
+          width: 80%;
+          color: #70767f;
+          font-size: 12px;
+          padding: 10%;
+          border-bottom: 1px solid #dee1e5; }
+        #nav #right #avatar #avatar-drop-down a:last-child {
+          border-bottom: none; }
+        #nav #right #avatar #avatar-drop-down a:hover {
+          background-color: #00cc99;
+          color: white; }
+
+@media screen and (max-width: 550px) {
+  #nav #right #mobile-search {
+    display: inline-block; }
+  #nav #right input {
+    position: absolute;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    margin-top: 75px;
+    background-color: #262728;
+    padding: 2%;
+    width: 96%;
+    display: none; } }

@@ -1,0 +1,230 @@
+@font-face { 
+  font-family: 'ProximaNova';
+  src: url('file:../fonts/ProximaNova-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+$main-green: #00cc99;
+$main-black: #262728;
+$logo-font: ProximaNova;
+$main-font: 'Open Sans', sans-serif;
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  max-width: 1500px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.container {
+  max-width: 1300px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.inner-container {
+  width: 575px;
+  margin: 0 auto;
+}
+
+#hero-image-container {
+  width: 100%;
+  overflow: hidden;
+  text-align: center;
+
+  #header-img {
+    height: 485px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #create-message {
+    background-color: rgba(0,204,153,0.7);
+    padding: 8%;
+    position: relative;
+    width: 84%;
+
+    input {
+      background-color: rgba(0,0,0,0);
+      border: none;
+      display: block;
+      width: 80%;
+      padding: 2%;
+      font-size: 30px;
+      font-family: $main-font;
+      ::-webkit-input-placeholder { color: white; }
+      :-moz-placeholder { color: white; }
+      ::-moz-placeholder { color: white; }
+      :-ms-input-placeholder { color: white; }
+    }
+
+    a {
+      color: white;
+      font-family: $main-font;
+      text-decoration: none;
+
+        img {
+          padding: 10px;
+        }
+    }
+  }
+}
+
+#nav {
+  background-color: $main-black;
+  height: 60px;
+  position: fixed;
+  width: 100%;
+
+  #logo {
+    padding-right: 10px;
+  }
+
+  img {
+    margin: 15px 0 0 15px;
+  }
+
+  span {
+    font-family: $logo-font;
+    text-decoration: none;
+    top: -5px;
+    position: relative;
+  }
+
+  #simply-logo {
+    color: #686e76;
+    padding: 10px 0;
+  }
+
+  #social-logo {
+    color: #bec3cc;
+    padding: 10px 10px 10px 0;
+  }
+
+  #right {
+    float: right;
+    display: inline-block;
+
+    img {
+      height: 30px;
+      margin: 15px 15px 0 15px;
+    }
+
+    #profile-picture {
+      margin-right: 0;
+    }
+
+    #arrow {
+      height: 4px;
+      margin-left: 10px;
+      position: relative;
+      top: -12px;
+    }
+
+    input {
+      background-color: $main-black;
+      border-radius: 3px;
+      border: solid 1px #44474b;
+      height: 28px;
+      width: 198px;
+      position: relative;
+      top: -10px;
+      background: url('../imgs/search.svg');
+      background-position: 95% 50%;
+      background-repeat:no-repeat;
+      color: white;
+      font-family: $main-font;
+      display: inline-block;
+    }
+
+    #mobile-search {
+      display: none;
+    }
+
+    input:focus {
+      outline: auto 5px $main-green
+    }
+
+    #avatar{
+      display: inline-block;
+      position: relative;
+      padding-bottom: 15px;
+
+      #avatar-drop-down {
+        width: 96px;
+        background-color: white;
+        border-radius: 3px;
+        position: absolute;
+        margin: 5px 0px 0 -15px;
+        display: none;
+
+        :after {
+          bottom: 100%;
+          left: 80%;
+          border: solid transparent;
+          content: " ";
+          height: 0;
+          width: 0;
+          position: absolute;
+          pointer-events: none;
+          border-bottom-color: white;
+          border-width: 5px;
+          margin-left: -5px;
+        }
+
+        a {
+          text-decoration: none;
+          font-family: $main-font;
+          display: block;
+          width: 80%;
+          color: #70767f;
+          font-size: 12px;
+          padding: 10%;
+          border-bottom: 1px solid #dee1e5;
+        }
+
+        a:last-child {
+          border-bottom: none;
+        }
+
+        a:hover {
+          background-color: $main-green;
+          color: white;
+        }
+      }
+    }
+  }
+}
+
+$width-name: max-width;
+$target-width: 550px;
+
+@media screen and ($width-name : $target-width) {
+
+  #nav {
+
+    #right {
+
+      #mobile-search {
+        display: inline-block;
+      }
+
+      input {
+        position: absolute;
+        margin: 0 auto;
+        left: 0;
+        right: 0;
+        margin-top: 75px;
+        background-color: $main-black;
+        padding: 2%;
+        width: 96%;
+        display: none;
+      }
+    }
+  }
+}
