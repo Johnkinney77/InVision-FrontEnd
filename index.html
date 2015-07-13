@@ -9,9 +9,12 @@
   <script src="./public/js/main.js"></script>
   <link rel="stylesheet" type="text/css" href="./public/css/sassfile.css">
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:600,400' rel='stylesheet' type='text/css'>
+  <!-- template for post with out photo on bottom -->
   <script type="text/template" id="post-template">
   <div class="post-content"><div class="post-image"><img src="{{img_url}}"></div><div class="post-info"><div class="post-head"><h4>{{name}}</h4><div class="right"><a href="#"><img src="./public/imgs/back-arrow.svg"></a><a href="#"><img src="./public/imgs/like.svg"></a><p class="time-ago">{{timeAgo}}</p></div></div><p>{{{comment}}}</p></div></div>
   </script>
+
+  <!-- template for post with photo -->
   <script type="text/template" id="post-template-image">
   <div class="post-content"><div class="post-image"><img src="{{img_url}}"></div><div class="post-info"><div class="post-head"><h4>{{name}}</h4><div class="right"><a href="#"><img src="./public/imgs/back-arrow.svg"></a><a href="#"><img src="./public/imgs/like.svg"></a><p class="time-ago">{{timeAgo}}</p></div></div><p>{{{comment}}}</p></div></div><img class="post-feature-img" src={{photo_url}}>
   </script>
@@ -23,7 +26,7 @@
         <img id="logo" src="./public/imgs/simply-social-logo.svg"> <span id="simply-logo">simply</span><span id="social-logo">social</span>
       </a>
       <div class="right">
-        <a href="#"><img src="./public/imgs/new-comment.svg"></a>
+        <a data-button="new-message" href="#"><img src="./public/imgs/new-comment.svg"></a>
         <input type="text"/>
         <a id="mobile-search" href="#"><img src="./public/imgs/search-icon-green.svg"></a>
         <div id="avatar">
@@ -84,5 +87,20 @@
       </nav>
     </div>
   </footer>
+  <div id="new-message-model">
+
+    <div class="inner-container" id="new-message-box">
+      <img id="new-message-exit" src="./public/imgs/message-exit.svg">
+      <div id="new-message-input">
+        <h3>Create New Message</h3>
+        <textarea data-input="message"></textarea>
+        <div id="new-message-buttons">
+          <a href="#"><img src="./public/imgs/upload-images-icon-black.svg"><span>Add Photo</span></a>
+          <a href="#"><img src="./public/imgs/upload-video-icon-black.svg"><span>Add Photo</span></a>
+          <button data-submit="submit">Post</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

@@ -13,8 +13,10 @@ var router = Backbone.Router.extend({
       model: postModel
     });
 
+
     postsCollectionView = new SimplySocial.Views.PostsCollectionView({collection: postsCollection,
-      el: $("#posts")})
+      el: $("#posts")
+    });
 
     mainPageData.forEach(function (e) {
       postsCollection.add(e)

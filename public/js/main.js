@@ -23,6 +23,32 @@ $(function () {
     $('#avatar-drop-down').fadeToggle();
   });
 
+  //opens new message model
+  $('[data-button="new-message"]').on('click', function () {
+    $('#new-message-model').fadeIn()
+  })
+
+  //closes new message model and clears out textarea val
+  $('#new-message-exit').on('click', function() {
+    $('#new-message-model').fadeOut()
+    $('[data-input="message"]').val('')
+  })
+
+  $('[data-submit="submit"]').on('click', function () {
+    console.log('clicked')
+    var created = new Date().getTime()
+    console.log(created)
+    var message = $('[data-input="message"]').val()
+    postsCollection.add([{
+      name: 'Jessica Tuan',
+      comment: message,
+      img_url: "./public/imgs/profile_pictures/jessica-tuan-profile-pic.jpg",
+      created: created
+    }]);
+    $('#new-message-model').fadeOut()
+    $('[data-input="message"]').val('')
+  })
+
 
 
 mainPageData = [
@@ -115,7 +141,11 @@ SimplySocial.Views.PostsCollectionView = Backbone.View.extend({
   }
 })
 SimplySocial.Collections.PostsCollection = Backbone.Collection.extend({
-  model: SimplySocial.Models.PostModel
+  model: SimplySocial.Models.PostModel,
+  comparator: function( collection ){
+    console.log(collection.get( 'created' ))
+    return( collection.get( 'created' ) );
+  }
 });
 var router = Backbone.Router.extend({
 
@@ -132,8 +162,10 @@ var router = Backbone.Router.extend({
       model: postModel
     });
 
+
     postsCollectionView = new SimplySocial.Views.PostsCollectionView({collection: postsCollection,
-      el: $("#posts")})
+      el: $("#posts")
+    });
 
     mainPageData.forEach(function (e) {
       postsCollection.add(e)

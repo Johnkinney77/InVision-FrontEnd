@@ -23,4 +23,30 @@ $(function () {
     $('#avatar-drop-down').fadeToggle();
   });
 
+  //opens new message model
+  $('[data-button="new-message"]').on('click', function () {
+    $('#new-message-model').fadeIn()
+  })
+
+  //closes new message model and clears out textarea val
+  $('#new-message-exit').on('click', function() {
+    $('#new-message-model').fadeOut()
+    $('[data-input="message"]').val('')
+  })
+
+  $('[data-submit="submit"]').on('click', function () {
+    console.log('clicked')
+    var created = new Date().getTime()
+    console.log(created)
+    var message = $('[data-input="message"]').val()
+    postsCollection.add([{
+      name: 'Jessica Tuan',
+      comment: message,
+      img_url: "./public/imgs/profile_pictures/jessica-tuan-profile-pic.jpg",
+      created: created
+    }]);
+    $('#new-message-model').fadeOut()
+    $('[data-input="message"]').val('')
+  })
+
 
