@@ -14,7 +14,6 @@ $(function () {
 
   //fade toggles the search bar
   $('#mobile-search').on('click', function() {
-    console.log('hi')
     $(".right input").fadeToggle();
   })
 

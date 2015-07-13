@@ -14,7 +14,6 @@ $(function () {
 
   //fade toggles the search bar
   $('#mobile-search').on('click', function() {
-    console.log('hi')
     $(".right input").fadeToggle();
   })
 
@@ -28,48 +27,80 @@ $(function () {
 
 mainPageData = [
 { name: 'Sam Soffes',
-  comment: 'How to Get Inspired: the Right Way - Designmodo bit.ly/1hqgbQA Good stuff from <a class="at-someone" href="#">@designmodo!</a>',
-  img_url: "./public/imgs/profile_pictures/sam-soffes-profile-pic.jpg"},
+  comment: 'How to Get Inspired: the Right Way - Designmodo bit.ly/1hqgbQA Good stuff from <a class="link" href="#">@designmodo!</a>',
+  img_url: "./public/imgs/profile_pictures/sam-soffes-profile-pic.jpg",
+  created: 1436798655952
+},
 { name: 'Meg Robichaud',
-  comment: 'My view this morning is simply beautiful... instagram.com/p/mV0PUrHRwQ/',
+  comment: 'My view this morning is simply beautiful... <a class="link" href="#">instagram.com/p/mV0PUrHRwQ/</a>',
   img_url: "./public/imgs/profile_pictures/meg-robinchaud-profile-pic.jpg",
-  photo_url: "./public/imgs/meg-instagram.jpg"
+  photo_url: "./public/imgs/meg-instagram.jpg",
+  created: 1436798591691
 },
 { name: 'Kerem Suer',
-  comment: '8 Apps to Turn Your Pipe Dreams Into Prototypes on.mash.to/1oubyu8',
-  img_url: "./public/imgs/profile_pictures/kerem-suer-profile-pic.jpg"
+  comment: '8 Apps to Turn Your Pipe Dreams Into Prototypes <a class="link" href="#">on.mash.to/1oubyu8</a>',
+  img_url: "./public/imgs/profile_pictures/kerem-suer-profile-pic.jpg",
+  created: 1436798526819
 },
 { name: 'Liang Shi',
-  comment: 'How to get animations out of your head. http://bit.ly/1q7BngO  Funny and useful.',
-  img_url: "./public/imgs/profile_pictures/liang-shi-profile-pic.jpg"
+  comment: 'How to get animations out of your head. <a class="link" href="#">http://bit.ly/1q7BngO</a> Funny and useful.',
+  img_url: "./public/imgs/profile_pictures/liang-shi-profile-pic.jpg",
+  created: 1436798465516
 },
 { name: 'Vitor Leal',
-  comment: 'You have to see this bike. It will make your daily commute a absolute joy ride! vimeo.com/p/mV0PUrHRwQ/',
+  comment: 'You have to see this bike. It will make your daily commute a absolute joy ride! <a class="link" href="#">vimeo.com/p/mV0PUrHRwQ/</a>',
   img_url: "./public/imgs/profile_pictures/vitor-leal-profile-pic.jpg",
-  photo_url: "./public/imgs/vitor-video.jpg"
+  photo_url: "./public/imgs/vitor-video.jpg",
+  created: 1436798373558
 }
 ]
 SimplySocial.Models.PostModel = Backbone.Model.extend({});
 SimplySocial.Views.PostsView = Backbone.View.extend({
 
   template: $("#post-template").text(),
+  photoTemplate: $("#post-template-image").text(),
   className: "post",
   // events: {
   //   "click": 'clicked'
   // },
   render: function(){
-    console.log('rendered')
+
+    //gets current time stamp
+    var dateNow = new Date();
+
+    //gets created time stamp
+    var originallyCreated = this.model.attributes.created;
+
+    //subtracts original from current to get the difference
+    //divides by 60 to calculate how many minutes have passed
+    var timeAgo = (dateNow - originallyCreated) / 60000
+
+    //logic to do hours, days, and minutes passed
+    if (timeAgo > 60){
+      this.model.attributes.timeAgo = Math.ceil(timeAgo / 60) + 'h'
+    } else if (timeAgo > 1440) {
+      this.model.attributes.timeAgo = Math.ceil(timeAgo / 1440) + 'd'
+    } else {
+      this.model.attributes.timeAgo = Math.ceil(timeAgo) + 'm'
+    }
+    console.log(this.model.attributes.img_url)
+    if (this.model.attributes.photo_url) {
+      var renderedPost = Mustache.render(this.photoTemplate, this.model.attributes)
+      this.$el.html(renderedPost)
+      return this
+    } else {
       var renderedPost = Mustache.render(this.template, this.model.attributes)
       this.$el.html(renderedPost)
       return this
-  },
+    }
+  }/*,
   clicked: function () {
     var region = $('#posts')
     region.empty()
     var id = $(this)[0].el.children[0].id - 1;
     var renderedPost = Mustache.render(this.template, mainPageData[id])
     region.html(renderedPost)
-  }
+  }*/
 })
 
 SimplySocial.Views.PostsCollectionView = Backbone.View.extend({
@@ -106,7 +137,6 @@ var router = Backbone.Router.extend({
 
     mainPageData.forEach(function (e) {
       postsCollection.add(e)
-      console.log(e)
     });
   },
 

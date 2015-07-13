@@ -18,7 +18,6 @@ var router = Backbone.Router.extend({
 
     mainPageData.forEach(function (e) {
       postsCollection.add(e)
-      console.log(e)
     });
   },
 

@@ -10,7 +10,10 @@
   <link rel="stylesheet" type="text/css" href="./public/css/sassfile.css">
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:600,400' rel='stylesheet' type='text/css'>
   <script type="text/template" id="post-template">
-    <img src="{{img_url}}"><h4>{{name}}</h4><p>{{comment}}</p>
+  <div class="post-content"><div class="post-image"><img src="{{img_url}}"></div><div class="post-info"><div class="post-head"><h4>{{name}}</h4><div class="right"><a href="#"><img src="./public/imgs/back-arrow.svg"></a><a href="#"><img src="./public/imgs/like.svg"></a><p class="time-ago">{{timeAgo}}</p></div></div><p>{{{comment}}}</p></div></div>
+  </script>
+  <script type="text/template" id="post-template-image">
+  <div class="post-content"><div class="post-image"><img src="{{img_url}}"></div><div class="post-info"><div class="post-head"><h4>{{name}}</h4><div class="right"><a href="#"><img src="./public/imgs/back-arrow.svg"></a><a href="#"><img src="./public/imgs/like.svg"></a><p class="time-ago">{{timeAgo}}</p></div></div><p>{{{comment}}}</p></div></div><img class="post-feature-img" src={{photo_url}}>
   </script>
 </head>
 <body>
@@ -65,7 +68,21 @@
       </div>
     </div>
   </div>
-  <div id="posts">
+  <div class="inner-container">
+    <div id="posts">
+    </div>
+    <div id="load-more">LOAD MORE</div>
   </div>
+  <footer>
+    <div class="inner-container"> 
+      <nav>
+        <a href="#">About Us</a>
+        <a href="#">Support</a>
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">&copy; 2014 simplysocial</a>
+      </nav>
+    </div>
+  </footer>
 </body>
 </html>

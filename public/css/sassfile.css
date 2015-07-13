@@ -203,6 +203,77 @@ a {
         float: left;
         background-color: white; }
 
+#posts {
+  font-family: "Open Sans", sans-serif;
+  color: #3f454d;
+  margin-bottom: 100px; }
+  #posts .post-image {
+    position: relative; }
+  #posts .post {
+    border: 1px solid #dee1e5;
+    border-radius: 3px;
+    margin: 20px 0; }
+    #posts .post .post-feature-img {
+      width: 100%;
+      margin-bottom: -6px;
+      border-radius: 0 0 3px 3px; }
+    #posts .post .post-content {
+      margin: 20px; }
+      #posts .post .post-content .post-head {
+        width: 100%; }
+        #posts .post .post-content .post-head h4 {
+          font-size: 16px;
+          display: inline-block;
+          margin-bottom: 10px; }
+        #posts .post .post-content .post-head .right {
+          float: right; }
+          #posts .post .post-content .post-head .right img {
+            margin-left: 20px; }
+          #posts .post .post-content .post-head .right .time-ago {
+            font-size: 14px;
+            font-family: "Open Sans", sans-serif;
+            color: #bec3cc;
+            display: inline;
+            margin-left: 20px;
+            top: -2px;
+            position: relative; }
+    #posts .post p {
+      font-size: 15px; }
+    #posts .post .post-image img {
+      border-radius: 3px;
+      position: absolute;
+      top: 0; }
+    #posts .post .post-info {
+      display: inline-block;
+      margin-left: 55px; }
+    #posts .post .link {
+      color: #bec3cc; }
+
+#load-more {
+  font-family: "Open Sans", sans-serif;
+  color: #bec3cc;
+  text-align: center;
+  font-weight: 500;
+  padding: 10px 0;
+  border-radius: 3px; }
+
+#load-more:hover {
+  background-color: #bec3cc;
+  color: white; }
+
+footer {
+  border-top: 1px solid #00cc99;
+  padding: 20px 0;
+  margin-top: 100px;
+  text-align: center;
+  font-size: 11px; }
+  footer nav a {
+    font-family: "Open Sans", sans-serif;
+    color: #00cc99;
+    padding: 0 10px; }
+  footer nav a:last-child {
+    color: #70767f; }
+
 @media screen and (max-width: 550px) {
   #nav .right #mobile-search {
     display: inline-block; }
