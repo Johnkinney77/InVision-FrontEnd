@@ -354,6 +354,151 @@ footer {
         background-color: #262728;
         color: white; }
 
+#setting {
+  padding-top: 100px;
+  font-family: "Open Sans", sans-serif; }
+  #setting h1 {
+    font-weight: 300;
+    color: #3f454d;
+    margin-bottom: 40px; }
+  #setting .section {
+    border-bottom: 1px solid #dee1e5;
+    position: relative;
+    margin-bottom: 50px; }
+    #setting .section h3 {
+      font-size: 13px;
+      color: #70767f;
+      margin-bottom: 30px; }
+    #setting .section #change-photo {
+      width: 85px;
+      display: inline-block;
+      position: absolute; }
+      #setting .section #change-photo img {
+        border-radius: 3px; }
+      #setting .section #change-photo button {
+        width: 100%;
+        border: 1px solid #dee1e5;
+        background-color: white;
+        color: #dee1e5;
+        font-size: 12px;
+        height: 30px;
+        border-radius: 3px;
+        margin-top: 5px; }
+      #setting .section #change-photo button:focus {
+        outline: none; }
+      #setting .section #change-photo button:hover {
+        background-color: #00cc99;
+        color: white; }
+    #setting .section #login-info {
+      width: 80%;
+      display: inline-block;
+      margin-left: 120px;
+      position: relative; }
+      #setting .section #login-info input {
+        border-radius: 3px;
+        border: solid 1px #bec3cc;
+        padding: 8px 8px 8px 38px;
+        width: 80%;
+        margin-bottom: 20px;
+        font-size: 16px;
+        color: #3f454d;
+        background-repeat: no-repeat;
+        background-position: 2.5% 50%; }
+      #setting .section #login-info input:focus {
+        outline: none;
+        border: 1px solid #00cc99; }
+      #setting .section #login-info #name-input {
+        background-image: url("../imgs/name-icon.svg"); }
+      #setting .section #login-info #name-input:focus {
+        background-image: url("../imgs/name-icon-selected.svg"); }
+      #setting .section #login-info #email-input {
+        background-image: url("../imgs/email-icon.svg"); }
+      #setting .section #login-info #email-input:focus {
+        background-image: url("../imgs/email-icon-selected.svg"); }
+      #setting .section #login-info #password-input {
+        background-image: url("../imgs/lock-icon.jpg");
+        color: #c7c9cc; }
+      #setting .section #login-info #password-input:focus {
+        background-image: url("../imgs/lock-icon-selected.jpg");
+        color: #00cc99; }
+      #setting .section #login-info #confirm-input {
+        background-image: url("../imgs/lock-icon.jpg");
+        color: #c7c9cc; }
+      #setting .section #login-info #confirm-input:focus {
+        background-image: url("../imgs/lock-icon-selected.jpg");
+        color: #00cc99; }
+      #setting .section #login-info button {
+        position: absolute;
+        display: inline-block;
+        width: 50px;
+        float: right;
+        background-color: transparent;
+        color: #c7c9cc;
+        height: 32px;
+        right: 51px; }
+      #setting .section #login-info button:hover {
+        border: none;
+        color: #00cc99; }
+  #setting #notifications span {
+    position: relative;
+    top: -8px;
+    color: #70767f;
+    display: inline-flex;
+    width: 81%; }
+  #setting #notifications #toggled-on {
+    background-color: #00cc99; }
+  #setting #notifications .toggle {
+    height: 25px;
+    width: 50px;
+    border-radius: 12.5px;
+    background-color: #dee1e5;
+    display: inline-block;
+    margin: 0 20px 20px 0; }
+    #setting #notifications .toggle .circle {
+      background-color: white;
+      height: 23px;
+      width: 23px;
+      border-radius: 11.5px;
+      position: relative;
+      margin: 1px;
+      display: inline-block; }
+  #setting #privacy input[type="radio"], #setting #privacy input[type="checkbox"] {
+    margin: 0 20px 20px 0;
+    border: solid 1px #bec3cc;
+    background-color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    height: 15px;
+    position: relative;
+    width: 15px;
+    -webkit-appearance: none;
+    display: inline-flex;
+    outline: none; }
+  #setting #privacy input[type="radio"]:checked, #setting #privacy input[type="checkbox"]:checked {
+    background-color: #00cc99;
+    -webkit-box-shadow: inset 0px 0px 0px 2px white;
+    -moz-box-shadow: inset 0px 0px 0px 2px white;
+    box-shadow: inset 0px 0px 0px 2px white; }
+  #setting #privacy span {
+    position: relative;
+    top: -2px;
+    color: #70767f; }
+  #setting button {
+    background-color: #00cc99;
+    width: 150px;
+    height: 40px;
+    border-radius: 3px;
+    border: none;
+    color: white;
+    font-size: 14px;
+    font-weight: 500; }
+  #setting button:hover {
+    border: 1px solid #dee1e5;
+    background-color: white;
+    color: #dee1e5; }
+  #setting button:focus {
+    outline: none; }
+
 @media screen and (max-width: 550px) {
   #nav .right #mobile-search {
     display: inline-block; }
@@ -366,4 +511,8 @@ footer {
     background-color: #262728;
     padding: 2%;
     width: 96%;
-    display: none; } }
+    display: none; }
+  #setting .section #login-info input {
+    width: 70%; }
+  #setting button {
+    width: 100%; } }

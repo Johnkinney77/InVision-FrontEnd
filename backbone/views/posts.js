@@ -26,7 +26,7 @@ SimplySocial.Views.PostsView = Backbone.View.extend({
     } else {
       this.model.attributes.timeAgo = Math.ceil(timeAgo) + 'm'
     }
-    console.log(this.model.attributes.img_url)
+    // console.log(this.model.attributes.img_url)
     if (this.model.attributes.photo_url) {
       var renderedPost = Mustache.render(this.photoTemplate, this.model.attributes)
       this.$el.html(renderedPost)

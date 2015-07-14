@@ -34,19 +34,36 @@ $(function () {
     $('[data-input="message"]').val('')
   })
 
+   //for submits on modal
   $('[data-submit="submit"]').on('click', function () {
-    console.log('clicked')
+
+    //gets current date and time
     var created = new Date().getTime()
-    console.log(created)
     var message = $('[data-input="message"]').val()
+
+    //hard coded some data right now as example
     postsCollection.add([{
       name: 'Jessica Tuan',
       comment: message,
       img_url: "./public/imgs/profile_pictures/jessica-tuan-profile-pic.jpg",
       created: created
     }]);
+
+    //fades out and sets text area value to nothing
     $('#new-message-model').fadeOut()
     $('[data-input="message"]').val('')
   })
 
-
+  //slide toggle for settings page
+  $('body').on('click', '.toggle', function () {
+    if ($(this).attr('id') === "toggled-on") {
+      console.log('yay')
+      $(this).children().animate({ left: '0px'}, 300, function() {
+      $(this).parent().attr("id", "")
+      });
+    } else {
+      $(this).children().animate({ left: '25px'}, 300, function() {
+        $(this).parent().attr("id", "toggled-on");
+      });
+    }
+  });

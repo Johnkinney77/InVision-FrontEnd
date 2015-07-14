@@ -34,23 +34,39 @@ $(function () {
     $('[data-input="message"]').val('')
   })
 
+   //for submits on modal
   $('[data-submit="submit"]').on('click', function () {
-    console.log('clicked')
+
+    //gets current date and time
     var created = new Date().getTime()
-    console.log(created)
     var message = $('[data-input="message"]').val()
+
+    //hard coded some data right now as example
     postsCollection.add([{
       name: 'Jessica Tuan',
       comment: message,
       img_url: "./public/imgs/profile_pictures/jessica-tuan-profile-pic.jpg",
       created: created
     }]);
+
+    //fades out and sets text area value to nothing
     $('#new-message-model').fadeOut()
     $('[data-input="message"]').val('')
   })
 
-
-
+  //slide toggle for settings page
+  $('body').on('click', '.toggle', function () {
+    if ($(this).attr('id') === "toggled-on") {
+      console.log('yay')
+      $(this).children().animate({ left: '0px'}, 300, function() {
+      $(this).parent().attr("id", "")
+      });
+    } else {
+      $(this).children().animate({ left: '25px'}, 300, function() {
+        $(this).parent().attr("id", "toggled-on");
+      });
+    }
+  });
 mainPageData = [
 { name: 'Sam Soffes',
   comment: 'How to Get Inspired: the Right Way - Designmodo bit.ly/1hqgbQA Good stuff from <a class="link" href="#">@designmodo!</a>',
@@ -109,7 +125,7 @@ SimplySocial.Views.PostsView = Backbone.View.extend({
     } else {
       this.model.attributes.timeAgo = Math.ceil(timeAgo) + 'm'
     }
-    console.log(this.model.attributes.img_url)
+    // console.log(this.model.attributes.img_url)
     if (this.model.attributes.photo_url) {
       var renderedPost = Mustache.render(this.photoTemplate, this.model.attributes)
       this.$el.html(renderedPost)
@@ -143,7 +159,7 @@ SimplySocial.Views.PostsCollectionView = Backbone.View.extend({
 SimplySocial.Collections.PostsCollection = Backbone.Collection.extend({
   model: SimplySocial.Models.PostModel,
   comparator: function( collection ){
-    console.log(collection.get( 'created' ))
+    // console.log(collection.get( 'created' ))
     return( collection.get( 'created' ) );
   }
 });
