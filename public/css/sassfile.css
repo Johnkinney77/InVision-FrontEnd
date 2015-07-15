@@ -57,6 +57,7 @@ a {
     border-radius: 3px; }
     #hero-image-container #create-message input {
       background-color: transparent;
+      color: white;
       border: none;
       display: block;
       margin-bottom: 40px;
@@ -89,7 +90,8 @@ a {
   background-color: #262728;
   height: 60px;
   position: fixed;
-  width: 100%; }
+  width: 100%;
+  top: 0; }
   #nav #logo {
     padding-right: 10px; }
   #nav img {
@@ -106,14 +108,15 @@ a {
     color: #bec3cc;
     padding: 10px 10px 10px 0; }
   #nav .right {
-    float: right;
-    display: inline-block; }
+    right: 0;
+    top: 0;
+    position: absolute; }
     #nav .right img {
       height: 30px;
       margin: 15px 15px 0 15px; }
     #nav .right #profile-picture {
       margin-right: 0; }
-    #nav .right #arrow {
+    #nav .right .arrow {
       height: 4px;
       margin-left: 10px;
       position: relative;
@@ -196,9 +199,16 @@ a {
       border-bottom: 4px solid transparent; }
     #subnav #filters a:hover {
       border-bottom: 4px solid #00cc99; }
+    #subnav #filters .selected {
+      border-bottom: 4px solid #00cc99;
+      opacity: 1; }
   #subnav .right {
-    float: right;
-    display: inline-block; }
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    top: 0; }
+    #subnav .right .selected {
+      opacity: 1; }
     #subnav .right #tiles, #subnav .right #list {
       width: 12px;
       display: block;
@@ -217,40 +227,83 @@ a {
         float: left;
         background-color: white; }
 
+.grid {
+  width: 100%;
+  margin: 0 auto; }
+
+.grid-container {
+  width: 1200px;
+  margin: 0 auto; }
+
+.grid-item {
+  width: 375px; }
+
 #posts {
   font-family: "Open Sans", sans-serif;
   color: #3f454d;
-  margin-bottom: 100px; }
+  position: relative; }
   #posts .post-image {
     position: relative; }
   #posts .post {
     border: 1px solid #dee1e5;
     border-radius: 3px;
-    margin: 20px 0; }
+    margin-top: 20px;
+    position: relative; }
+    #posts .post .right-bottom {
+      display: none;
+      margin: 20px; }
+    #posts .post .right {
+      position: absolute;
+      right: 0;
+      top: 0; }
+    #posts .post .right, #posts .post .right-bottom {
+      float: right; }
+      #posts .post .right img, #posts .post .right-bottom img {
+        margin-left: 20px; }
+      #posts .post .right .time-ago, #posts .post .right-bottom .time-ago {
+        font-size: 14px;
+        font-family: "Open Sans", sans-serif;
+        color: #bec3cc;
+        display: inline;
+        margin-left: 20px;
+        top: -2px;
+        position: relative; }
     #posts .post .post-feature-img {
       width: 100%;
       margin-bottom: -6px;
       border-radius: 0 0 3px 3px; }
+    #posts .post .play-button {
+      position: absolute;
+      left: 0;
+      margin: 0 auto;
+      right: 0;
+      top: 50%;
+      width: 100px;
+      height: 100px;
+      background-image: url("../imgs/play-button.png"); }
+    #posts .post .play-button:hover {
+      background-image: url("../imgs/play-button-hover.png"); }
     #posts .post .post-content {
       margin: 20px; }
       #posts .post .post-content .post-head {
-        width: 100%; }
+        width: 100%;
+        position: relative; }
         #posts .post .post-content .post-head h4 {
           font-size: 16px;
           display: inline-block;
           margin-bottom: 10px; }
-        #posts .post .post-content .post-head .right {
-          float: right; }
-          #posts .post .post-content .post-head .right img {
-            margin-left: 20px; }
-          #posts .post .post-content .post-head .right .time-ago {
-            font-size: 14px;
-            font-family: "Open Sans", sans-serif;
-            color: #bec3cc;
-            display: inline;
-            margin-left: 20px;
-            top: -2px;
-            position: relative; }
+      #posts .post .post-content .expand {
+        color: #bec3cc;
+        font-size: 12px;
+        margin-top: 20px; }
+        #posts .post .post-content .expand .right-bottom {
+          margin: 0;
+          position: absolute;
+          right: 20px; }
+      #posts .post .post-content .arrow {
+        position: relative;
+        top: -1px;
+        margin-left: 5px; }
     #posts .post p {
       font-size: 15px; }
     #posts .post .post-image img {
@@ -261,7 +314,8 @@ a {
       height: 40px; }
     #posts .post .post-info {
       display: inline-block;
-      margin-left: 55px; }
+      margin-left: 55px;
+      width: 90%; }
     #posts .post .link {
       color: #bec3cc; }
 
@@ -271,7 +325,8 @@ a {
   text-align: center;
   font-weight: 500;
   padding: 10px 0;
-  border-radius: 3px; }
+  border-radius: 3px;
+  margin-top: 100px; }
 
 #load-more:hover {
   background-color: #bec3cc;
@@ -443,7 +498,7 @@ footer {
     position: relative;
     top: -8px;
     color: #70767f;
-    display: inline-flex;
+    display: inline-block;
     width: 81%; }
   #setting #notifications #toggled-on {
     background-color: #00cc99; }
@@ -462,27 +517,29 @@ footer {
       position: relative;
       margin: 1px;
       display: inline-block; }
-  #setting #privacy input[type="radio"], #setting #privacy input[type="checkbox"] {
-    margin: 0 20px 20px 0;
-    border: solid 1px #bec3cc;
-    background-color: white;
-    border-radius: 10px;
-    cursor: pointer;
-    height: 15px;
-    position: relative;
-    width: 15px;
-    -webkit-appearance: none;
-    display: inline-flex;
-    outline: none; }
-  #setting #privacy input[type="radio"]:checked, #setting #privacy input[type="checkbox"]:checked {
-    background-color: #00cc99;
-    -webkit-box-shadow: inset 0px 0px 0px 2px white;
-    -moz-box-shadow: inset 0px 0px 0px 2px white;
-    box-shadow: inset 0px 0px 0px 2px white; }
-  #setting #privacy span {
-    position: relative;
-    top: -2px;
-    color: #70767f; }
+  #setting #privacy div {
+    margin-bottom: 20px; }
+    #setting #privacy div input[type="radio"], #setting #privacy div input[type="checkbox"] {
+      margin-right: 20px;
+      border: solid 1px #bec3cc;
+      background-color: white;
+      border-radius: 10px;
+      cursor: pointer;
+      height: 15px;
+      position: relative;
+      width: 15px;
+      -webkit-appearance: none;
+      display: inline-block;
+      outline: none; }
+    #setting #privacy div input[type="radio"]:checked, #setting #privacy div input[type="checkbox"]:checked {
+      background-color: #00cc99;
+      -webkit-box-shadow: inset 0px 0px 0px 2px white;
+      -moz-box-shadow: inset 0px 0px 0px 2px white;
+      box-shadow: inset 0px 0px 0px 2px white; }
+    #setting #privacy div span {
+      position: relative;
+      top: -2px;
+      color: #70767f; }
   #setting button {
     background-color: #00cc99;
     width: 150px;
@@ -499,11 +556,19 @@ footer {
   #setting button:focus {
     outline: none; }
 
+@media screen and (max-width: 1200px) {
+  .grid-container {
+    width: 800px; } }
+
+@media screen and (max-width: 800px) {
+  .grid-container {
+    width: 400px; } }
+
 @media screen and (max-width: 550px) {
   #nav .right #mobile-search {
     display: inline-block; }
   #nav .right input {
-    position: absolute;
+    position: fixed;
     margin: 0 auto;
     left: 0;
     right: 0;
@@ -512,7 +577,16 @@ footer {
     padding: 2%;
     width: 96%;
     display: none; }
+  #posts .post .post-info {
+    width: 89%; }
   #setting .section #login-info input {
     width: 70%; }
   #setting button {
     width: 100%; } }
+
+@media screen and (max-width: 433px) {
+  #notifications #first-toggle {
+    top: -10px;
+    position: relative; }
+  #posts .post .post-info {
+    width: 85%; } }

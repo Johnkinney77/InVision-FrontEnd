@@ -5,44 +5,117 @@
   <script src="./bower_components/jquery/dist/jquery.min.js"></script>
   <script src="./bower_components/underscore/underscore-min.js"></script>
   <script src="./bower_components/backbone/backbone-min.js"></script>
+  <!-- <script src="./bower_components/marionette/lib/backbone.marionette.min.js"></script> -->
   <script src="./bower_components/mustache/mustache.min.js"></script>
   <script src="./public/js/main.js"></script>
+  <script src="./bower_components/masonry/dist/masonry.pkgd.min.js"></script>
   <link rel="stylesheet" type="text/css" href="./public/css/sassfile.css">
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:600,400' rel='stylesheet' type='text/css'>
-  <!-- template for post with out photo on bottom -->
+<script type="text/template" id="layout-template">
+  <div id="nav"></div><div id="main"></div><footer id="footer"></footer>
+</script>
+
+  <!-- template for regular post -->
   <script type="text/template" id="post-template">
-  <div class="post-content"><div class="post-image"><img src="{{img_url}}"></div><div class="post-info"><div class="post-head"><h4>{{name}}</h4><div class="right"><a href="#"><img src="./public/imgs/back-arrow.svg"></a><a href="#"><img src="./public/imgs/like.svg"></a><p class="time-ago">{{timeAgo}}</p></div></div><p>{{{comment}}}</p></div></div>
+  <div class="post-content">
+    <div class="post-image">
+      <img src="{{img_url}}">
+    </div>
+    <div class="post-info">
+      <div class="post-head">
+        <h4>{{name}}</h4>
+        <div class="right">
+          <a href="#"><img src="./public/imgs/back-arrow.svg"></a>
+          <a href="#"><img src="./public/imgs/like.svg"></a>
+          <p class="time-ago">{{timeAgo}}</p>
+        </div>
+      </div>
+      <p>{{{comment}}}</p>
+    </div>
+  </div>
+  <div class="right-bottom">
+    <a href="#"><img src="./public/imgs/back-arrow.svg"></a>
+    <a href="#"><img src="./public/imgs/like.svg"></a>
+    <p class="time-ago">{{timeAgo}}</p>
+  </div>
+  </script>
+
+  <!-- template for post with expand -->
+  <script type="text/template" id="post-template-expand">
+  <div class="post-content">
+    <div class="post-image">
+      <img src="{{img_url}}">
+    </div>
+    <div class="post-info">
+      <div class="post-head">
+        <h4>{{name}}</h4>
+        <div class="right">
+          <a href="#"><img src="./public/imgs/back-arrow.svg"></a>
+          <a href="#"><img src="./public/imgs/like.svg"></a>
+          <p class="time-ago">{{timeAgo}}</p>
+        </div>
+      </div>
+      <p>{{{comment}}}</p>
+      <div class="expand">Expand<img class="arrow" src="./public/imgs/profile-arrow.png"></a><div class="right-bottom"><a href="#"><img src="./public/imgs/back-arrow.svg"></a><a href="#"><img src="./public/imgs/like.svg"></a>
+          <p class="time-ago">{{timeAgo}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
   </script>
 
   <!-- template for post with photo -->
-  <script type="text/template" id="post-template-image">
-  <div class="post-content"><div class="post-image"><img src="{{img_url}}"></div><div class="post-info"><div class="post-head"><h4>{{name}}</h4><div class="right"><a href="#"><img src="./public/imgs/back-arrow.svg"></a><a href="#"><img src="./public/imgs/like.svg"></a><p class="time-ago">{{timeAgo}}</p></div></div><p>{{{comment}}}</p></div></div><img class="post-feature-img" src={{photo_url}}>
+  <script type="text/template" id="post-template-photo">
+  <div class="post-content"><div class="post-image"><img src="{{img_url}}"></div><div class="post-info"><div class="post-head"><h4>{{name}}</h4><div class="right"><a href="#"><img src="./public/imgs/back-arrow.svg"></a><a href="#"><img src="./public/imgs/like.svg"></a><p class="time-ago">{{timeAgo}}</p></div></div><p>{{{comment}}}</p></div></div><img class="post-feature-img" src={{photo_url}}><div class="right-bottom"><a href="#"><img src="./public/imgs/back-arrow.svg"></a><a href="#"><img src="./public/imgs/like.svg"></a><p class="time-ago">{{timeAgo}}</p></div>
   </script>
-</head>
-<body>
-  <div id="nav">
-    <nav class="container">
-      <a href="#">
-        <img id="logo" src="./public/imgs/simply-social-logo.svg"> <span id="simply-logo">simply</span><span id="social-logo">social</span>
-      </a>
-      <div class="right">
-        <a data-button="new-message" href="#"><img src="./public/imgs/new-comment.svg"></a>
-        <input type="text"/>
-        <a id="mobile-search" href="#"><img src="./public/imgs/search-icon-green.svg"></a>
-        <div id="avatar">
-          <a href="#"><img id="profile-picture" src="./public/imgs/profile_pictures/jessica-tuan-profile-pic.jpg">
-          <img id="arrow" src="./public/imgs/profile-arrow.png"></a>
-          <div id="avatar-drop-down">
-            <a href="#">Profile</a>
-            <a href="#">Followers</a>
-            <a href="#">Following</a>
-            <a href="#/user/settings">Settings</a>
-          </div>
+
+  <!-- template for post with video -->
+  <script type="text/template" id="post-template-video">
+  <div class="post-content"><div class="post-image"><img src="{{img_url}}"></div><div class="post-info"><div class="post-head"><h4>{{name}}</h4><div class="right"><a href="#"><img src="./public/imgs/back-arrow.svg"></a><a href="#"><img src="./public/imgs/like.svg"></a><p class="time-ago">{{timeAgo}}</p></div></div><p>{{{comment}}}</p></div></div><img class="post-feature-img" src={{video_url}}><div class="play-button"></div><div class="right-bottom"><a href="#"><img src="./public/imgs/back-arrow.svg"></a><a href="#"><img src="./public/imgs/like.svg"></a><p class="time-ago">{{timeAgo}}</p></div>
+  </script>
+
+ <!-- template for settings page -->
+ <script type="text/template" id="settings-page-template">
+   <div class="inner-container">
+    <div id="setting">
+      <h1>Settings</h1>
+      <div class="section">
+        <h3>ACCOUNT</h3>
+        <div id="change-photo">
+          <img src="./public/imgs/profile_pictures/jessica-tuan-profile-pic.jpg">
+          <button>change</button>
+        </div>
+        <div id="login-info">
+          <input id="name-input" data-input="name" value="Jessica Tuan"/>
+          <input id="email-input" data-input="email" value="jessica@mail.com"/>
+          <input value="sssssss" id="password-input" type="password" data-input="password"/>
+          <input value="sssssss"id="confirm-input" type="password" placeholder="Hi" data-input="confirm"/><button>save</button>
         </div>
       </div>
-    </nav>
+      <div class="section" id="notifications">
+        <h3>NOTIFICATIONS</h3>
+        <div><div class="toggle" id="first-toggle"><div class="circle"></div></div><span>email me when my posts are marked favorite</span></div>
+        <div><div class="toggle"><div class="circle"></div></div><span>email me when I'm mentioned</span></div>
+        <div><div class="toggle"><div class="circle"></div></div><span>email me when I get a reply</span></div>
+        <div><div class="toggle"><div class="circle"></div></div><span>email me when someone follows me</span></div>
+      </div>
+      <div class="section" id="privacy">
+        <h3>PRIVACY</h3>
+        <div><input type="radio" name="tag" checked><span>allow anyone to tag me</span></div>
+        <div><input type="radio" name="tag"><span>only allow people I follow to tag me</span></div>
+        <div><input type="radio" name="tag"><span>don't allow anyone to tag me</span></div>
+        <div><input type="checkbox" name="location"><span>add a location to my posts</span></div>
+        <div><input type="checkbox" name="email"><span>let others find me by my email address</span></div>
+        <div><input type="checkbox" name="ads"><span>tailor ads based on my information</span></div>
+      </div>
+      <button>Save Changes</button>
+    </div>
   </div>
-  <div id="hero-image-container">
+ </script>
+
+ <!-- HOME PAGE TEMPLATE -->
+ <script type="text/template" id="home-page-template">
+ <div id="hero-image-container">
     <div class="inner-container">
       <div id="create-message">
         <input type="text" placeholder="What's on your mind?">
@@ -51,12 +124,12 @@
       </div>
       <div id="subnav">
         <div id="filters">
-          <a href="#">ALL POSTS</a>
+          <a href="#" class="selected">ALL POSTS</a>
           <a href="#">PHOTOS</a>
           <a href="#">VIDEOS</a>
         </div>
         <div class="right">
-          <a id="list" href="#">
+          <a id="list" class="selected" href="#">
             <div class="list-bar"></div>
             <div class="list-bar"></div>
             <div class="list-bar"></div>
@@ -74,9 +147,39 @@
   <div class="inner-container">
     <div id="posts">
     </div>
-    <div id="load-more">LOAD MORE</div>
   </div>
-  <footer>
+  <div id="load-more">LOAD MORE</div>
+ </script>
+
+
+</head>
+
+<body>
+<div id="nav">
+    <nav class="container">
+      <a href="#">
+        <img id="logo" src="./public/imgs/simply-social-logo.svg"> <span id="simply-logo">simply</span><span id="social-logo">social</span>
+      </a>
+      <div class="right">
+        <a data-button="new-message" href="#"><img src="./public/imgs/new-comment.svg"></a>
+        <input type="text"/>
+        <a id="mobile-search" href="#"><img src="./public/imgs/search-icon-green.svg"></a>
+        <div id="avatar">
+          <a href="#"><img id="profile-picture" src="./public/imgs/profile_pictures/jessica-tuan-profile-pic.jpg">
+          <img class="arrow" src="./public/imgs/profile-arrow.png"></a>
+          <div id="avatar-drop-down">
+            <a href="#">Profile</a>
+            <a href="#">Followers</a>
+            <a href="#">Following</a>
+            <a href="#/user/settings">Settings</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+ </div>
+<div id="main">
+</div>
+<footer>
     <div class="inner-container"> 
       <nav>
         <a href="#">About Us</a>
@@ -86,21 +189,20 @@
         <a href="#">&copy; 2014 simplysocial</a>
       </nav>
     </div>
-  </footer>
-  <div id="new-message-model">
-
-    <div class="inner-container" id="new-message-box">
-      <img id="new-message-exit" src="./public/imgs/message-exit.svg">
-      <div id="new-message-input">
-        <h3>Create New Message</h3>
-        <textarea data-input="message"></textarea>
-        <div id="new-message-buttons">
-          <a href="#"><img src="./public/imgs/upload-images-icon-black.svg"><span>Add Photo</span></a>
-          <a href="#"><img src="./public/imgs/upload-video-icon-black.svg"><span>Add Photo</span></a>
-          <button data-submit="submit">Post</button>
-        </div>
+</footer>
+<div id="new-message-model">
+  <div class="inner-container" id="new-message-box">
+    <img id="new-message-exit" src="./public/imgs/message-exit.svg">
+    <div id="new-message-input">
+      <h3>Create New Message</h3>
+      <textarea data-input="message"></textarea>
+      <div id="new-message-buttons">
+        <a href="#"><img src="./public/imgs/upload-images-icon-black.svg"><span>Add Photo</span></a>
+        <a href="#"><img src="./public/imgs/upload-video-icon-black.svg"><span>Add Photo</span></a>
+        <button data-submit="submit">Post</button>
       </div>
     </div>
   </div>
+</div>
 </body>
 </html>

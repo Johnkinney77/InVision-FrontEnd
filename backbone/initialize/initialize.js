@@ -12,6 +12,9 @@ $(function () {
     }
   })
 
+  var listActive = true;
+  var tilesActive = false;
+
   //fade toggles the search bar
   $('#mobile-search').on('click', function() {
     $(".right input").fadeToggle();
@@ -48,22 +51,9 @@ $(function () {
       img_url: "./public/imgs/profile_pictures/jessica-tuan-profile-pic.jpg",
       created: created
     }]);
-
     //fades out and sets text area value to nothing
     $('#new-message-model').fadeOut()
     $('[data-input="message"]').val('')
   })
 
-  //slide toggle for settings page
-  $('body').on('click', '.toggle', function () {
-    if ($(this).attr('id') === "toggled-on") {
-      console.log('yay')
-      $(this).children().animate({ left: '0px'}, 300, function() {
-      $(this).parent().attr("id", "")
-      });
-    } else {
-      $(this).children().animate({ left: '25px'}, 300, function() {
-        $(this).parent().attr("id", "toggled-on");
-      });
-    }
-  });
+

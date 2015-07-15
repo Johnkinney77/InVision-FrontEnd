@@ -10,6 +10,10 @@
   <link rel="stylesheet" type="text/css" href="./public/css/sassfile.css">
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:600,400' rel='stylesheet' type='text/css'>
   <!-- template for post with out photo on bottom -->
+<script type="text/template" id="layout-template">
+  <div id="nav"></div><div id="main"></div><footer id="footer"></footer>
+</script>
+
   <script type="text/template" id="post-template">
   <div class="post-content"><div class="post-image"><img src="{{img_url}}"></div><div class="post-info"><div class="post-head"><h4>{{name}}</h4><div class="right"><a href="#"><img src="./public/imgs/back-arrow.svg"></a><a href="#"><img src="./public/imgs/like.svg"></a><p class="time-ago">{{timeAgo}}</p></div></div><p>{{{comment}}}</p></div></div>
   </script>

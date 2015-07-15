@@ -2,7 +2,8 @@ mainPageData = [
 { name: 'Sam Soffes',
   comment: 'How to Get Inspired: the Right Way - Designmodo bit.ly/1hqgbQA Good stuff from <a class="link" href="#">@designmodo!</a>',
   img_url: "./public/imgs/profile_pictures/sam-soffes-profile-pic.jpg",
-  created: 1436798655952
+  created: 1436798655952,
+  expand: true
 },
 { name: 'Meg Robichaud',
   comment: 'My view this morning is simply beautiful... <a class="link" href="#">instagram.com/p/mV0PUrHRwQ/</a>',
@@ -23,7 +24,7 @@ mainPageData = [
 { name: 'Vitor Leal',
   comment: 'You have to see this bike. It will make your daily commute a absolute joy ride! <a class="link" href="#">vimeo.com/p/mV0PUrHRwQ/</a>',
   img_url: "./public/imgs/profile_pictures/vitor-leal-profile-pic.jpg",
-  photo_url: "./public/imgs/vitor-video.jpg",
+  video_url: "./public/imgs/vitor-video.jpg",
   created: 1436798373558
 }
 ]

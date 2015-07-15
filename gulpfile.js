@@ -4,7 +4,7 @@ var rename = require('gulp-rename');
 var concat = require('gulp-concat');
 
 gulp.task('process-scripts', function () {
-  return gulp.src(['./backbone/initialize/*.js', './backbone/data/*.js', './backbone/models/*.js', './backbone/views/*.js', './backbone/collections/*.js', './backbone/router/*.js'])
+  return gulp.src(['./backbone/initialize/*.js', './backbone/data/*.js', './backbone/models/*.js', './backbone/views/*.js', './backbone/collections/*.js', './backbone/layout-views/*.js', './backbone/router/*.js'])
   .pipe(concat('main.js'))
 
   .pipe(gulp.dest('./public/js'))
@@ -19,7 +19,7 @@ gulp.task('sass', function () {
 });
 
 gulp.task('watch', ['sass', 'process-scripts'], function () {
-  gulp.watch(['./backbone/initialize/*.js', './backbone/data/*.js', './backbone/models/*.js', './backbone/views/*.js', './backbone/collections/*.js', './backbone/router/*.js'], ['process-scripts'])
+  gulp.watch(['./backbone/initialize/*.js', './backbone/data/*.js', './backbone/models/*.js', './backbone/views/*.js', './backbone/collections/*.js', './backbone/layout-views/*.js','./backbone/router/*.js'], ['process-scripts'])
   gulp.watch('./sassfile.scss', ['sass']);
 });
 
