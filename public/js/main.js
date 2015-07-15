@@ -26,9 +26,10 @@ $(function () {
     $('#avatar-drop-down').fadeToggle();
   });
 
-  //opens new message model
+  //opens new message modal
   $('[data-button="new-message"]').on('click', function () {
-    $('#new-message-model').fadeIn()
+    console.log('hi')
+    $('#new-message-modal').fadeIn()
   })
 
   //closes new message model and clears out textarea val
