@@ -513,7 +513,7 @@ footer {
 }
 
 //modal for creating new message
-#new-message-model {
+#new-message-modal {
   background-color: rgba(0,0,0,0.5);
   position: fixed;
   width: 100%;
@@ -581,14 +581,17 @@ footer {
         }
 
         button {
-          float: right;
-          background-color: $main-green;
+          position: absolute;
+          right: 0;
+          background-color: #00cc99;
           padding: 10px;
           width: 75px;
           border: none;
           border-radius: 2px;
           color: white;
-          text-align: center
+          text-align: center;
+          margin-right: 20px;
+          bottom: 12px;
         }
 
         button:hover {
@@ -916,6 +919,38 @@ footer {
 
       .post-info {
         width: 85%;
+      }
+    }
+  }
+
+  #new-message-modal #new-message-box {
+    width: 85%;
+    margin-top: 150px;
+
+    // #new-message-input #new-message-buttons a:first-child {
+    //   margin-bottom: 10px;
+
+    // }
+    // #new-message-input #new-message-buttons a {
+    //   display: inline-block;
+    //   width: 55%;
+    // }
+    #new-message-input {
+
+      #new-message-buttons {
+        margin-top: 6px;
+        
+        a:first-child {
+          padding-left: 15px;
+        }
+
+        button {
+          display: block;
+          position: initial;
+          width: 100%;
+          margin-top: 20px;
+
+        }
       }
     }
   }

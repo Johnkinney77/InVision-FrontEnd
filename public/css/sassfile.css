@@ -349,7 +349,7 @@ footer {
   footer nav a:last-child:hover {
     color: #00cc99; }
 
-#new-message-model {
+#new-message-modal {
   background-color: rgba(0, 0, 0, 0.5);
   position: fixed;
   width: 100%;
@@ -359,25 +359,25 @@ footer {
   left: 0;
   font-family: "Open Sans", sans-serif;
   display: none; }
-  #new-message-model #new-message-box {
+  #new-message-modal #new-message-box {
     width: 96%;
     background-color: #dee1e5;
     border-radius: 3px;
     margin-top: 20%;
     padding: 10px 0;
     position: relative; }
-    #new-message-model #new-message-box #new-message-exit {
+    #new-message-modal #new-message-box #new-message-exit {
       position: absolute;
       right: -20px;
       top: -20px; }
-    #new-message-model #new-message-box #new-message-input {
+    #new-message-modal #new-message-box #new-message-input {
       margin: 10px 20px; }
-      #new-message-model #new-message-box #new-message-input h3 {
+      #new-message-modal #new-message-box #new-message-input h3 {
         font-size: 16px;
         font-weight: 300;
         margin-bottom: 10px;
         color: #70767f; }
-      #new-message-model #new-message-box #new-message-input textarea {
+      #new-message-modal #new-message-box #new-message-input textarea {
         border: none;
         width: 96%;
         padding: 2%;
@@ -385,27 +385,30 @@ footer {
         height: 80px;
         resize: none;
         margin-bottom: 10px; }
-      #new-message-model #new-message-box #new-message-input textarea:focus {
+      #new-message-modal #new-message-box #new-message-input textarea:focus {
         outline: none; }
-      #new-message-model #new-message-box #new-message-input #new-message-buttons img {
+      #new-message-modal #new-message-box #new-message-input #new-message-buttons img {
         padding-right: 10px; }
-      #new-message-model #new-message-box #new-message-input #new-message-buttons a {
+      #new-message-modal #new-message-box #new-message-input #new-message-buttons a {
         color: #262728;
         opacity: 0.5; }
-      #new-message-model #new-message-box #new-message-input #new-message-buttons a:first-child {
+      #new-message-modal #new-message-box #new-message-input #new-message-buttons a:first-child {
         padding-right: 50px; }
-      #new-message-model #new-message-box #new-message-input #new-message-buttons a:hover {
+      #new-message-modal #new-message-box #new-message-input #new-message-buttons a:hover {
         opacity: 1; }
-      #new-message-model #new-message-box #new-message-input #new-message-buttons button {
-        float: right;
+      #new-message-modal #new-message-box #new-message-input #new-message-buttons button {
+        position: absolute;
+        right: 0;
         background-color: #00cc99;
         padding: 10px;
         width: 75px;
         border: none;
         border-radius: 2px;
         color: white;
-        text-align: center; }
-      #new-message-model #new-message-box #new-message-input #new-message-buttons button:hover {
+        text-align: center;
+        margin-right: 20px;
+        bottom: 12px; }
+      #new-message-modal #new-message-box #new-message-input #new-message-buttons button:hover {
         background-color: #262728;
         color: white; }
 
@@ -591,4 +594,16 @@ footer {
     top: -10px;
     position: relative; }
   #posts .post .post-info {
-    width: 85%; } }
+    width: 85%; }
+  #new-message-modal #new-message-box {
+    width: 85%;
+    margin-top: 150px; }
+    #new-message-modal #new-message-box #new-message-input #new-message-buttons {
+      margin-top: 6px; }
+      #new-message-modal #new-message-box #new-message-input #new-message-buttons a:first-child {
+        padding-left: 15px; }
+      #new-message-modal #new-message-box #new-message-input #new-message-buttons button {
+        display: block;
+        position: initial;
+        width: 100%;
+        margin-top: 20px; } }
