@@ -32,9 +32,9 @@ $(function () {
     $('#new-message-modal').fadeIn()
   })
 
-  //closes new message model and clears out textarea val
+  //closes new message modal and clears out textarea val
   $('#new-message-exit').on('click', function() {
-    $('#new-message-model').fadeOut()
+    $('#new-message-modal').fadeOut()
     $('[data-input="message"]').val('')
   })
 
@@ -53,7 +53,7 @@ $(function () {
       created: created
     }]);
     //fades out and sets text area value to nothing
-    $('#new-message-model').fadeOut()
+    $('#new-message-modal').fadeOut()
     $('[data-input="message"]').val('')
   })
 
