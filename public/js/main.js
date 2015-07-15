@@ -309,8 +309,7 @@ SimplySocial.Views.SettingsView = Backbone.View.extend({
 });
 //posts collection
 SimplySocial.Collections.PostsCollection = Backbone.Collection.extend({
-  model: SimplySocial.Models.PostModel,
-  comparator: "created"
+  model: SimplySocial.Models.PostModel
 });
 var router = Backbone.Router.extend({
 

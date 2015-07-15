@@ -774,8 +774,13 @@ footer {
 
   #privacy {
 
+    div.related {
+      margin: 10px 0;
+    }
+
+
     div {
-      margin-bottom: 20px;
+      margin: 20px 0;
 
       input[type="radio"], input[type="checkbox"] {
         margin-right: 20px;

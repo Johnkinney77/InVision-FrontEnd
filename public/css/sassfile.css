@@ -517,8 +517,10 @@ footer {
       position: relative;
       margin: 1px;
       display: inline-block; }
+  #setting #privacy div.related {
+    margin: 10px 0; }
   #setting #privacy div {
-    margin-bottom: 20px; }
+    margin: 20px 0; }
     #setting #privacy div input[type="radio"], #setting #privacy div input[type="checkbox"] {
       margin-right: 20px;
       border: solid 1px #bec3cc;
